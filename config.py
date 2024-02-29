@@ -23,7 +23,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 LOGGER_ID = int(getenv("LOGGER_ID", ""))
 
-OWNER_ID = int(getenv("OWNER_ID", "2107529793"))
+OWNER_ID = int(getenv("OWNER_ID", "6377689548"))
 
 BOT_USERNAME = getenv("BOT_USERNAME" , "Alone_Dil_bot")
 
@@ -42,8 +42,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/govind_official_mpp")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/govind_official_mpp")
 
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", "True")
@@ -86,16 +86,16 @@ clean = {}
 autoclean = []
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", ""
+    "START_IMG_URL", "https://te.legra.ph/file/c3bdae6f5f36d12c9e09a.mp4"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", ""
+    "PING_IMG_URL", "https://te.legra.ph/file/039d9913f90dffeb5835b.jpg"
 )
-PLAYLIST_IMG_URL = ""
-STATS_IMG_URL = ""
+PLAYLIST_IMG_URL = "https://te.legra.ph/file/039d9913f90dffeb5835b.jpg"
+STATS_IMG_URL = "https://te.legra.ph/file/7af55a67398d46b4092a2.jpg"
 TELEGRAM_AUDIO_URL = "https://te.legra.ph/file/810f874873e1565cf5732.jpg"
 TELEGRAM_VIDEO_URL = "https://te.legra.ph/file/16d7dd76f4ce8b8b01fdf.jpg"
-STREAM_IMG_URL = ""
+STREAM_IMG_URL = "https://te.legra.ph/file/039d9913f90dffeb5835b.jpg"
 SOUNCLOUD_IMG_URL = "https://te.legra.ph/file/bb0ff85f2dd44070ea519.jpg"
 YOUTUBE_IMG_URL = "https://te.legra.ph/file/53f1a295e172d39eaa39d.jpg"
 SPOTIFY_ARTIST_IMG_URL = "https://te.legra.ph/file/5d90c3bc7f0d229194a9f.jpg"

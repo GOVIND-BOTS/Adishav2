@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pymongo import MongoClient
 from AarohiX import app
-from config import MONGO_DB
+from config import MONGO_DB_URI
 from pyrogram.types import *
 
 

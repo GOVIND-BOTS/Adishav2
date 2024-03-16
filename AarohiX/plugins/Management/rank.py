@@ -15,7 +15,7 @@ today = {}
 
 pic = "https://te.legra.ph/file/f137d0781e953fb8e8309.jpg"
 
-https://t.me/+nq_0yW1gWJ4xNDA1
+
 # ------------------- watcher ----------------------- #
 
 @app.on_message(filters.group & filters.group, group=6)

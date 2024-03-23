@@ -1,7 +1,6 @@
 import os
 import re
 import textwrap
-from AarohiX.utils.thumbnails import get_thumb circular
 import aiofiles
 import aiohttp
 import numpy as np

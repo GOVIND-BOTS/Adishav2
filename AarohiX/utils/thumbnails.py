@@ -1,11 +1,11 @@
 import os
 import re
 import textwrap
-
+from AarohiX.utils.thumbnails import get_thumb
 import aiofiles
 import aiohttp
 import numpy as np
-
+from AarohiX.core.call import Dil
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 from youtubesearchpython.__future__ import VideosSearch
 

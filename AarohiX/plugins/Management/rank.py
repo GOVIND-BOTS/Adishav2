@@ -5,8 +5,8 @@ from config import MONGO_DB_URI
 from pyrogram.types import *
 
 
-mongo_client = MongoClient(MONGO_DB)
-db = mongo_client["natu_rankings"]
+# mongo_client = MongoClient(MONGO_DB)
+# db = mongo_client["natu_rankings"]
 collection = db["ranking"]
 
 user_data = {}

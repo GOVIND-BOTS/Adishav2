@@ -7,13 +7,13 @@ from pyrogram import filters
 load_dotenv()
 
 
-API_ID = int(getenv("API_ID", ""))
+API_ID = int(getenv("API_ID", "29981514"))
 
-API_HASH = getenv("API_HASH", "")
+API_HASH = getenv("API_HASH", "8f913218d44ff822f6c85a8622a15b36")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "")
+BOT_TOKEN = getenv("BOT_TOKEN", "6756167396:AAGMYggl3TEJWDWArVTwSgMBlc6euOVdiUU")
 
-MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://DxLEGEND143:DxLEGEND143@dxlegend.oztipqk.mongodb.net/?retryWrites=true&w=majority&appName=DxLEGEND")
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 54000))
 
@@ -21,11 +21,11 @@ SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "54000")
 )
 
-LOGGER_ID = int(getenv("LOGGER_ID", ""))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002024440406"))
 
-OWNER_ID = int(getenv("OWNER_ID", "6377689548"))
+OWNER_ID = int(getenv("OWNER_ID", "5350640981"))
 
-BOT_USERNAME = getenv("BOT_USERNAME" , "")
+BOT_USERNAME = getenv("BOT_USERNAME" , "@Adisha_musicbot")
 
 COMMAND_HANDLER = getenv("COMMAND_HANDLER", "! / .").split()
 

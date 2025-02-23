@@ -12,14 +12,6 @@
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
-<p align="center">
-<a href="https://github.com/stkeditz/AAROHIxMUSIC/stargazers"><img src="https://img.shields.io/github/stars/stkeditz/AAROHIxMUSIC?color=darkred&logo=github&logoColor=darkred&style=for-the-badge" alt="Stars" /></a>
-<a href="stkeditz/AAROHIxMUSIC/network/members"> <img src="https://img.shields.io/github/forks/stkeditz/AAROHIxMUSIC?color=darkred&logo=github&logoColor=darkred&style=for-the-badge" /></a>
-<a href="https://github.com/stkeditz/AAROHIxMUSIC/blob/master/LICENSE"> <img src="https://img.shields.io/badge/License-MIT-darkred?style=for-the-badge" alt="License" /> </a>
-<a href="https://www.python.org/"> <img src="https://img.shields.io/badge/Written%20in-Python-darkred?style=for-the-badge&logo=python" alt="Python" /> </a>
-<a href="https://pypi.org/project/Pyrogram/"> <img src="https://img.shields.io/pypi/v/pyrogram?color=darkred&label=pyrogram&logo=python&logoColor=darkred&style=for-the-badge" /></a>
-<a href="https://github.com/stkeditz/AAROHIxMUSIC/commits/stkeditz"> <img src="https://img.shields.io/github/last-commit/stkeditz/AAROHIxMUSIC?color=darkred&logo=github&logoColor=darkred&style=for-the-badge" /></a>
-</p>
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
@@ -31,7 +23,7 @@
   <img src="https://te.legra.ph/file/08e3fa23bfff81e9e04b1.jpg">
 </p>
 
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
+<a href="https://www.youtube.com/watch?v="><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 <h3 align="center">
     ─「 ❣️ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ❣️ 」─
@@ -74,7 +66,7 @@ Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
 - ɪғ ʏᴏᴜ'ʀᴇ ʜᴀᴠɪɴɢ ᴀɴʏ ɪssᴜᴇs ɪɴ ᴀɴʏ ᴏғ ᴛʜᴇsᴇ ᴄᴏᴍᴍᴀɴᴅs, ᴘʟᴇᴀsᴇ sʜᴀʀᴇ ɪᴛ ᴡɪᴛʜ ᴜs
 
 
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
+<a href="https://www.youtube.com/watch?v"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 
 <h3 align="center">
@@ -99,18 +91,18 @@ Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
 
 - `/end ᴏʀ /stop` : ᴄʟᴇᴀʀs ᴛʜᴇ ǫᴜᴇᴜᴇ ᴀɴᴅ ᴇɴᴅ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ.
 
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
+<a href="https://www.youtube.com/watch?"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 <h3 align="center">
     ─「 sᴜᴩᴩᴏʀᴛ [ᴅɪʟ❣️] 」─
 </h3>
 
 <p align="center">
-<a href="https://t.me/LOVE_FEELINGS_WILL1"><img src="https://img.shields.io/badge/-Support%20Group-darkred.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/Loda"><img src="https://img.shields.io/badge/-Support%20Group-darkred.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <p align="center">
-<a href="https://t.me/LOVE_FEELINGS_WILL"(https://te.legra.ph/file/5d90c3bc7f0d229194a9f.jpg)"><img src="https://img.shields.io/badge/-Support%20Channel-darkred.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/lol"(https://te.legra.ph/file/5d90c3bc7f0d229194a9f.jpg)"><img src="https://img.shields.io/badge/-Support%20Channel-darkred.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
@@ -127,7 +119,7 @@ Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
 
 ### `Copy Pasters` : You Can Copy This But Must Give Credits To Me...
 
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
+<a href="https://www.youtube.com/watch?v="><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>
 
 <h3 align="center">
     ─「🍃 ᴄʀᴇᴅɪᴛs 🍃」─

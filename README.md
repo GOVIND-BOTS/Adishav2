@@ -26,6 +26,10 @@ AdishaV2 is a powerful and feature-rich Telegram music bot built using Pyrogram 
 - `/skip` - Skip to next track
 - `/queue` - Show current queue
 
+Click the button below to deploy **AdishaV2** on **Heroku** effortlessly:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/GOVIND-BOTS/Adishav2)
+
 ### Admin Commands
 - `/ban @user` - Ban a user
 - `/unban @user` - Unban a user

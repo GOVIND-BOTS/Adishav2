@@ -1,5 +1,5 @@
 
-from pyrogram import Client, errors
+from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
 
 import config
@@ -10,6 +10,7 @@ from ..logging import LOGGER
 class Dil(Client):
     def __init__(self):
         LOGGER(__name__).info("Starting Bot...")
+
         super().__init__(
             name="AarohiX",
             api_id=config.API_ID,
@@ -27,48 +28,29 @@ class Dil(Client):
         self.username = self.me.username
         self.mention = self.me.mention
 
+        # Logger notification is optional.
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
                 text=(
-                    f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b></u>\n\n"
-                    f"ɪᴅ : <code>{self.id}</code>\n"
-                    f"ɴᴀᴍᴇ : {self.name}\n"
-                    f"ᴜsᴇʀɴᴀᴍᴇ : @{self.username}"
+                    f"<u><b>» {self.mention} bot started:</b></u>\n\n"
+                    f"ID: <code>{self.id}</code>\n"
+                    f"Name: {self.name}\n"
+                    f"Username: @{self.username}"
                 ),
             )
+            LOGGER(__name__).info("Startup notification sent.")
 
-        except Exception:
-            LOGGER(__name__).exception(
-                "Failed to send startup message to the log group/channel. "
-                "Check LOGGER_ID, chat access, and bot permissions."
-            )
-            raise
-
-        try:
-            member = await self.get_chat_member(
-                config.LOGGER_ID,
-                self.id,
+        except Exception as error:
+            LOGGER(__name__).warning(
+                "Logger notification skipped (%s). "
+                "Continuing without the logger group.",
+                type(error).__name__,
             )
 
-            if member.status not in (
-                ChatMemberStatus.ADMINISTRATOR,
-                ChatMemberStatus.OWNER,
-            ):
-                LOGGER(__name__).error(
-                    "The bot must be an administrator in the log group/channel."
-                )
-                raise RuntimeError(
-                    "Bot is not an administrator in the log group/channel."
-                )
-
-        except Exception:
-            LOGGER(__name__).exception(
-                "Failed to verify bot administrator status in the log group/channel."
-            )
-            raise
-
-        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
+        LOGGER(__name__).info(
+            "Bot authenticated successfully as %s", self.name
+        )
 
     async def stop(self):
         await super().stop()

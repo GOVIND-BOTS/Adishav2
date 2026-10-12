@@ -1,4 +1,3 @@
-import sys
 
 from pyrogram import Client
 
@@ -48,151 +47,74 @@ class Userbot(Client):
             no_updates=True,
         )
 
-
     async def start(self):
-        LOGGER(__name__).info(f"Gettings Assistants Info...")
-        if config.STRING1:
-            await self.one.start()
+        LOGGER(__name__).info("Starting assistant accounts...")
+
+        accounts = [
+            (1, self.one, config.STRING1, "LOVE_FEELINGS_WILL1"),
+            (2, self.two, config.STRING2, "LOVE_FEELINGS_WILL1"),
+            (3, self.three, config.STRING3, "LOVE_FEELINGS_WILL1"),
+            (4, self.four, config.STRING4, "LOVE_FEELINGS_WILL1"),
+            (5, self.five, config.STRING5, "LOVE_FEELINGS_WILL1"),
+        ]
+
+        for number, client, session, channel in accounts:
+            if not session:
+                continue
+
             try:
-                await self.one.join_chat("LOVE_FEELINGS_WILL1")
-                await self.one.join_chat("LOVE_FEELINGS_WILL1")
-            except:
-                pass
-            assistants.append(1)
-            get_me = await self.one.get_me()
-            self.one.username = get_me.username
-            self.one.id = get_me.id
-            assistantids.append(get_me.id)
-            if get_me.last_name:
-                self.one.name = (
-                    get_me.first_name + " " + get_me.last_name
+                await client.start()
+                me = await client.get_me()
+
+                client.username = me.username
+                client.id = me.id
+                client.name = (
+                    f"{me.first_name} {me.last_name}"
+                    if me.last_name
+                    else me.first_name
                 )
-            else:
-                self.one.name = get_me.first_name
-            LOGGER(__name__).info(
-                f"Assistant Started as {self.one.name}"
-            )
+
+                if number not in assistants:
+                    assistants.append(number)
+
+                if me.id not in assistantids:
+                    assistantids.append(me.id)
+
+                LOGGER(__name__).info(
+                    "Assistant %s started as %s (@%s)",
+                    number,
+                    client.name,
+                    client.username or "no_username",
+                )
+
+                # Joining this channel is optional.
+                try:
+                    await client.join_chat(channel)
+                except Exception as error:
+                    LOGGER(__name__).warning(
+                        "Assistant %s could not join optional channel: %s",
+                        number,
+                        type(error).__name__,
+                    )
+
+            except Exception:
+                LOGGER(__name__).exception(
+                    "Assistant %s failed to start.", number
+                )
+                raise
+
+    async def stop(self):
+        for client in (
+            self.one,
+            self.two,
+            self.three,
+            self.four,
+            self.five,
+        ):
             try:
-                await self.one.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ᴏɴᴇ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.one.id}`\n❄ ɴᴀᴍᴇ : {self.one.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.one.username}"
+                if client.is_connected:
+                    await client.stop()
+            except Exception:
+                LOGGER(__name__).exception(
+                    "Error while stopping an assistant."
                 )
-            except:
-                LOGGER(__name__).error(
-                    f"Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
-                )
-                sys.exit()
-        if config.STRING2:
-            await self.two.start()
-            try:
-                await self.two.join_chat("LOVE_FEELINGS_WILL1")
-                await self.two.join_chat("LOVE_FEELINGS_WILL1")
-            except:
-                pass
-            assistants.append(2)
-            get_me = await self.two.get_me()
-            self.two.username = get_me.username
-            self.two.id = get_me.id
-            assistantids.append(get_me.id)
-            if get_me.last_name:
-                self.two.name = (
-                    get_me.first_name + " " + get_me.last_name
-                )
-            else:
-                self.two.name = get_me.first_name
-            try:
-                await self.two.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ᴛᴡᴏ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.two.id}`\n❄ ɴᴀᴍᴇ : {self.two.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.two.username}"
-                )
-            except:
-                LOGGER(__name__).error(
-                    f"Assistant Account 2 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
-                )
-                sys.exit()
-            LOGGER(__name__).info(
-                f"Assistant Two Started as {self.two.name}"
-            )
-        if config.STRING3:
-            await self.three.start()
-            try:
-                await self.three.join_chat("LOVE_FEELINGS_WILL1")
-                await self.three.join_chat("LOVE_FEELINGS_WILL1")
-            except:
-                pass
-            assistants.append(3)
-            get_me = await self.three.get_me()
-            self.three.username = get_me.username
-            self.three.id = get_me.id
-            assistantids.append(get_me.id)
-            if get_me.last_name:
-                self.three.name = (
-                    get_me.first_name + " " + get_me.last_name
-                )
-            else:
-                self.three.name = get_me.first_name
-            try:
-                await self.three.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ᴛʜʀᴇᴇ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.three.id}`\n❄ ɴᴀᴍᴇ : {self.three.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.three.username}"
-                )
-            except:
-                LOGGER(__name__).error(
-                    f"Assistant Account 3 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
-                )
-                sys.exit()
-            LOGGER(__name__).info(
-                f"Assistant Three Started as {self.three.name}"
-            )
-        if config.STRING4:
-            await self.four.start()
-            try:
-                await self.four.join_chat("LOVE_FEELINGS_WILL1")
-                await self.four.join_chat("LOVE_FEELINGS_WILL1")
-            except:
-                pass
-            assistants.append(4)
-            get_me = await self.four.get_me()
-            self.four.username = get_me.username
-            self.four.id = get_me.id
-            assistantids.append(get_me.id)
-            if get_me.last_name:
-                self.four.name = (
-                    get_me.first_name + " " + get_me.last_name
-                )
-            else:
-                self.four.name = get_me.first_name
-            try:
-                await self.four.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ғᴏᴜʀ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.four.id}`\n❄ ɴᴀᴍᴇ : {self.four.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.four.username}"
-                )
-            except:
-                LOGGER(__name__).error(
-                    f"Assistant Account 4 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
-                )
-                sys.exit()
-            LOGGER(__name__).info(
-                f"Assistant Four Started as {self.four.name}"
-            )
-        if config.STRING5:
-            await self.five.start()
-            try:
-                await self.five.join_chat("LOVE_FEELINGS_WILL1")
-                await self.five.join_chat("LOVE_FEELINGS_WILL1")
-            except:
-                pass
-            assistants.append(5)
-            get_me = await self.five.get_me()
-            self.five.username = get_me.username
-            self.five.id = get_me.id
-            assistantids.append(get_me.id)
-            if get_me.last_name:
-                self.five.name = (
-                    get_me.first_name + " " + get_me.last_name
-                )
-            else:
-                self.five.name = get_me.first_name
-            try:
-                await self.five.send_message(config.LOGGER_ID, f"**» ᴀssɪsᴛᴀɴᴛ ғɪᴠᴇ sᴛᴀʀᴛᴇᴅ :**\n\n✨ ɪᴅ : `{self.five.id}`\n❄ ɴᴀᴍᴇ : {self.five.name}\n💫 ᴜsᴇʀɴᴀᴍᴇ : @{self.five.username}"
-                )
-            except:
-                LOGGER(__name__).error(
-                    f"Assistant Account 5 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin ! "
-                )
-                sys.exit()
-            LOGGER(__name__).info(
-                f"Assistant Five Started as {self.five.name}"
-            )

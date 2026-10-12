@@ -7,11 +7,11 @@ from pyrogram import filters
 load_dotenv()
 
 
-API_ID = int(getenv("API_ID", "29981514"))
+API_ID = int(getenv("API_ID", "28811345"))
 
-API_HASH = getenv("API_HASH", "8f913218d44ff822f6c85a8622a15b36")
+API_HASH = getenv("API_HASH", "8df803a8832e85ddddcd8c05fe840a05")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "6756167396:AAGMYggl3TEJWDWArVTwSgMBlc6euOVdiUU")
+BOT_TOKEN = getenv("BOT_TOKEN", "8693984535:AAFBeDNUzDBZhyRD47ccx9mWdD8GABVXr_k")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://DxLEGEND143:DxLEGEND143@dxlegend.oztipqk.mongodb.net/?retryWrites=true&w=majority&appName=DxLEGEND")
 
@@ -21,11 +21,11 @@ SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "54000")
 )
 
-LOGGER_ID = int(getenv("LOGGER_ID", "-1002024440406"))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1004314590643"))
 
-OWNER_ID = int(getenv("OWNER_ID", "5350640981"))
+OWNER_ID = int(getenv("OWNER_ID", "8250224070"))
 
-BOT_USERNAME = getenv("BOT_USERNAME" , "@Adisha_musicbot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "@Testing_musicv3bot")
 
 COMMAND_HANDLER = getenv("COMMAND_HANDLER", "! / .").split()
 
@@ -42,8 +42,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/govind_official_mpp")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/govind_official_mpp")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/govind_official_mp13")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/govind_official_mp13")
 
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", "True")
@@ -65,8 +65,8 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
 
 
 
-# Get your pyrogram v2 session from @Shsusu_bot on Telegram
-STRING1 = getenv("STRING_SESSION", "")
+# Get your pyrogram v2 session  
+STRING1 = getenv("STRING_SESSION", "BQCZzqEAtGbd60ED05sMk4XtsP7GpOTMikiz-wY0BDzeTfpTevxdw_4DQ7bgmpn6x3Y_7sQ6hNGVHlHxmEbC2JG6YooX4Kog1nXVgwl57nqNUsgGEo-SwTpT_wR85w8lyLBTwsOoC_fIDjmW86taN-V3TK1iXaRk7k5Dng8YVuWdMEgjZLtN9_yB9Uy9o3ce48-IkNbijqccZIbaNteIXA8DkDEv_mStosi2YwKKn7A1wFTIZCNu_EpgKL-XIDn-z0crnA9-FQfqG7H3lAOqTcmed-hktFb2Fc4kByHKy6cPHi6sbnNsNWsHY1dhXlBou2cv08C0AxNwGVdL0_xn6xkMD0RFAAAAAAHrwG3GAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)

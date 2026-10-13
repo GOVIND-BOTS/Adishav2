@@ -5,7 +5,13 @@ ENV PYTHONUNBUFFERED=1
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends ffmpeg git \
+    && apt-get install -y --no-install-recommends \
+        ffmpeg \
+        git \
+        nodejs \
+        npm \
+    && node --version \
+    && npm --version \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

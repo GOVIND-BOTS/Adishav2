@@ -1,6 +1,5 @@
 
 from pyrogram import Client
-from pyrogram.enums import ChatMemberStatus
 
 import config
 

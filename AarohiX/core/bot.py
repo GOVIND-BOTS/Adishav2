@@ -27,26 +27,7 @@ class Dil(Client):
         self.username = self.me.username
         self.mention = self.me.mention
 
-        # Logger notification is optional.
-        try:
-            await self.send_message(
-                chat_id=config.LOGGER_ID,
-                text=(
-                    f"<u><b>» {self.mention} bot started:</b></u>\n\n"
-                    f"ID: <code>{self.id}</code>\n"
-                    f"Name: {self.name}\n"
-                    f"Username: @{self.username}"
-                ),
-            )
-            LOGGER(__name__).info("Startup notification sent.")
-
-        except Exception as error:
-            LOGGER(__name__).warning(
-                "Logger notification skipped (%s). "
-                "Continuing without the logger group.",
-                type(error).__name__,
-            )
-
+        # No logger group required.
         LOGGER(__name__).info(
             "Bot authenticated successfully as %s", self.name
         )

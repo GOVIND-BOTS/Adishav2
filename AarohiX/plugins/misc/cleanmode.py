@@ -72,8 +72,7 @@ async def auto_clean():
             continue
         try:
             for chat_id in clean:
-                if chat_id == config.LOGGER_ID:
-                    continue
+              
                 for x in clean[chat_id]:
                     if datetime.now() > x["timer_after"]:
                         try:

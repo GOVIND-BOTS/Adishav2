@@ -1,5 +1,18 @@
 import asyncio
 import importlib
+import sys
+
+# ========== FIX START ==========
+# Event loop force create (Python 3.10+ ke liye zaroori)
+if sys.version_info >= (3, 10):
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+else:
+    loop = asyncio.get_event_loop()
+# ========== FIX END ==========
 
 from pyrogram import idle
 
@@ -56,11 +69,15 @@ async def init():
         await Dil.start()
 
         # Logger-group startup test deliberately removed.
-        # The bot no longer requires LOGGER_ID or a logger voice chat to start.
         await Dil.decorators()
 
         LOGGER("AarohiX").info("Music bot started successfully.")
         await idle()
+
+    except Exception as e:
+        LOGGER("AarohiX").error(f"Bot crashed with error: {e}")
+        raise   # important: error dikhe logs me
+
     finally:
         # Properly stop PyTgCalls first
         try:
@@ -84,4 +101,9 @@ async def init():
 
 
 if __name__ == "__main__":
-    asyncio.run(init())
+    try:
+        asyncio.run(init())
+    except KeyboardInterrupt:
+        LOGGER("AarohiX").info("Bot stopped by user.")
+    except Exception as e:
+        LOGGER("AarohiX").error(f"Fatal error: {e}")

@@ -1,7 +1,4 @@
-"""
-Copyright (c) 2024 @dil_sagar_121
-Copyright (c) 2024 @Alone_Dil_bot
-"""
+
 
 import uuid
 import asyncio
@@ -11,7 +8,7 @@ from AarohiX import app
 import config
 #from config import BOT_USERNAME as BOT_ID
 from AarohiX.misc import SUDOERS as SUDO
-from config import LOGGER_ID as LOG_GROUP_ID
+
 
 
 from pyrogram import filters

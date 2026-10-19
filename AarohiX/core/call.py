@@ -563,6 +563,13 @@ class Call(PyTgCalls):
         if config.STRING5:
             await self.five.start()
 
+    async def stop(self):
+        for client in [self.one, self.two, self.three, self.four, self.five]:
+            try:
+                await client.stop()
+            except:
+                pass
+
     async def decorators(self):
         @self.one.on_kicked()
         @self.two.on_kicked()

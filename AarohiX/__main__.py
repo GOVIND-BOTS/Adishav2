@@ -62,17 +62,24 @@ async def init():
         LOGGER("AarohiX").info("Music bot started successfully.")
         await idle()
     finally:
-        # Stop only clients that were successfully started.
+        # Properly stop PyTgCalls first
+        try:
+            await Dil.stop()
+        except Exception as exc:
+            LOGGER("AarohiX").warning("Error stopping PyTgCalls: %s", exc)
+
         if userbot_started:
             try:
                 await userbot.stop()
             except Exception as exc:
                 LOGGER("AarohiX").warning("Error stopping assistant client: %s", exc)
+
         if app_started:
             try:
                 await app.stop()
             except Exception as exc:
                 LOGGER("AarohiX").warning("Error stopping bot client: %s", exc)
+
         LOGGER("AarohiX").info("Music bot stopped.")
 
 

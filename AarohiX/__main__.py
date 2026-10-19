@@ -2,16 +2,9 @@ import asyncio
 import importlib
 import sys
 
-
-if sys.version_info >= (3, 10):
-    try:
-        loop = asyncio.get_running_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-else:
-    loop = asyncio.get_event_loop()
-# ========== FIX END ==========
+# Force event loop early
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
 
 from pyrogram import idle
 
@@ -25,16 +18,13 @@ from config import BANNED_USERS
 
 
 async def init():
-    # At least one assistant session is required for voice-chat playback.
-    if not any(
-        [
-            config.STRING1,
-            config.STRING2,
-            config.STRING3,
-            config.STRING4,
-            config.STRING5,
-        ]
-    ):
+    if not any([
+        config.STRING1,
+        config.STRING2,
+        config.STRING3,
+        config.STRING4,
+        config.STRING5,
+    ]):
         LOGGER(__name__).error(
             "No assistant session configured. Set at least one STRING1-STRING5."
         )
@@ -42,67 +32,60 @@ async def init():
 
     await sudo()
 
-    # Load banned users from the database when available.
     try:
         for user_id in await get_gbanned():
             BANNED_USERS.add(user_id)
         for user_id in await get_banned_users():
             BANNED_USERS.add(user_id)
     except Exception as exc:
-        LOGGER(__name__).warning("Could not load banned users from database: %s", exc)
-
-    app_started = False
-    userbot_started = False
+        LOGGER(__name__).warning("Could not load banned users: %s", exc)
 
     try:
         await app.start()
-        app_started = True
+        LOGGER("AarohiX").info("Bot client started.")
 
         for all_module in ALL_MODULES:
             importlib.import_module("AarohiX.plugins" + all_module)
         LOGGER("AarohiX.plugins").info("Successfully imported all plugin modules.")
 
         await userbot.start()
-        userbot_started = True
+        LOGGER("AarohiX").info("Userbot started.")
 
         await Dil.start()
-
-        # Logger-group startup test deliberately removed.
         await Dil.decorators()
 
         LOGGER("AarohiX").info("Music bot started successfully.")
         await idle()
 
     except Exception as e:
-        LOGGER("AarohiX").error(f"Bot crashed with error: {e}")
-        raise   # important: error dikhe logs me
+        LOGGER("AarohiX").error(f"Error while starting: {e}", exc_info=True)
+        raise
 
     finally:
-        # Properly stop PyTgCalls first
         try:
             await Dil.stop()
-        except Exception as exc:
-            LOGGER("AarohiX").warning("Error stopping PyTgCalls: %s", exc)
-
-        if userbot_started:
-            try:
-                await userbot.stop()
-            except Exception as exc:
-                LOGGER("AarohiX").warning("Error stopping assistant client: %s", exc)
-
-        if app_started:
-            try:
-                await app.stop()
-            except Exception as exc:
-                LOGGER("AarohiX").warning("Error stopping bot client: %s", exc)
-
+        except:
+            pass
+        try:
+            await userbot.stop()
+        except:
+            pass
+        try:
+            await app.stop()
+        except:
+            pass
         LOGGER("AarohiX").info("Music bot stopped.")
 
 
 if __name__ == "__main__":
     try:
-        asyncio.run(init())
+        loop.run_until_complete(init())
     except KeyboardInterrupt:
-        LOGGER("AarohiX").info("Bot stopped by user.")
+        pass
     except Exception as e:
-        LOGGER("AarohiX").error(f"Fatal error: {e}")
+        LOGGER("AarohiX").error(f"Fatal error: {e}", exc_info=True)
+    finally:
+        try:
+            loop.close()
+        except:
+            pass

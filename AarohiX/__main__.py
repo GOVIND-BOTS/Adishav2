@@ -2,8 +2,7 @@ import asyncio
 import importlib
 import sys
 
-# ========== FIX START ==========
-# Event loop force create (Python 3.10+ ke liye zaroori)
+
 if sys.version_info >= (3, 10):
     try:
         loop = asyncio.get_running_loop()

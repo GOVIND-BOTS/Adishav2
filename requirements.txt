@@ -1,7 +1,6 @@
 aiofiles
 aiohttp
 apscheduler
-asyncio
 beautifulsoup4
 dnspython
 emojis
@@ -14,7 +13,6 @@ gpytranslate
 hachoir
 heroku3
 httpx[http2]
-httpx==0.25.2
 lyricsgenius
 motor
 numpy
@@ -37,7 +35,7 @@ spotipy
 telegraph
 tgcrypto
 unidecode
-yt-dlp==2024.8.6
+yt-dlp
 youtube-search
 youtube-search-python
 wget

@@ -11,7 +11,7 @@ API_ID = int(getenv("API_ID", "28811345"))
 
 API_HASH = getenv("API_HASH", "8df803a8832e85ddddcd8c05fe840a05")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "8693984535:AAFBeDNUzDBZhyRD47ccx9mWdD8GABVXr_k")
+BOT_TOKEN = getenv("BOT_TOKEN", "8695998901:AAHS0KRWOlZ2DCZj_AbiE1d1kcOtLbDl8dA")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://DxLEGEND143:DxLEGEND143@dxlegend.oztipqk.mongodb.net/?retryWrites=true&w=majority&appName=DxLEGEND")
 

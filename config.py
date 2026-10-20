@@ -24,7 +24,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 OWNER_ID = int(getenv("OWNER_ID", "8250224070"))
 
-BOT_USERNAME = getenv("BOT_USERNAME" , "@Testing_musicv3bot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "@Adisha_x_music_bot")
 
 COMMAND_HANDLER = getenv("COMMAND_HANDLER", "! / .").split()
 

@@ -9,7 +9,7 @@ load_dotenv()
 
 API_ID = int(getenv("API_ID", "30606308"))
 
-API_HASH = getenv("API_HASH", "8630c59667bcf2719a4460ccd4956874")
+API_HASH = getenv("API_HASH", "8872915418:AAEtAL133z6v6kfChf-X4x1CXFlGgQMSyLc")
 
 BOT_TOKEN = getenv("BOT_TOKEN", "8841846857:AAGmuRcS-V4UhkKdsyanb-9BIjYMnCDtQKE")
 
@@ -24,7 +24,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 OWNER_ID = int(getenv("OWNER_ID", "8250224070"))
 
-BOT_USERNAME = getenv("BOT_USERNAME" , "@Adisha_x_music_bot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "@Adishax_music_bot")
 
 COMMAND_HANDLER = getenv("COMMAND_HANDLER", "! / .").split()
 

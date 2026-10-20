@@ -1,10 +1,6 @@
+
 import asyncio
 import importlib
-import sys
-
-# Force event loop early
-loop = asyncio.new_event_loop()
-asyncio.set_event_loop(loop)
 
 from pyrogram import idle
 
@@ -17,75 +13,99 @@ from AarohiX.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
 
-async def init():
-    if not any([
-        config.STRING1,
-        config.STRING2,
-        config.STRING3,
-        config.STRING4,
-        config.STRING5,
-    ]):
-        LOGGER(__name__).error(
-            "No assistant session configured. Set at least one STRING1-STRING5."
-        )
-        return
-
-    await sudo()
+async def main():
+    app_started = False
+    userbot_started = False
+    calls_started = False
 
     try:
-        for user_id in await get_gbanned():
-            BANNED_USERS.add(user_id)
-        for user_id in await get_banned_users():
-            BANNED_USERS.add(user_id)
-    except Exception as exc:
-        LOGGER(__name__).warning("Could not load banned users: %s", exc)
+        if not any(
+            [
+                config.STRING1,
+                config.STRING2,
+                config.STRING3,
+                config.STRING4,
+                config.STRING5,
+            ]
+        ):
+            LOGGER("AarohiX").error(
+                "No assistant session configured. Set STRING_SESSION."
+            )
+            return
 
-    try:
+        await sudo()
+
+        try:
+            for user_id in await get_gbanned():
+                BANNED_USERS.add(user_id)
+
+            for user_id in await get_banned_users():
+                BANNED_USERS.add(user_id)
+        except Exception:
+            LOGGER("AarohiX").warning(
+                "Could not load banned users.", exc_info=True
+            )
+
         await app.start()
+        app_started = True
         LOGGER("AarohiX").info("Bot client started.")
 
-        for all_module in ALL_MODULES:
-            importlib.import_module("AarohiX.plugins" + all_module)
-        LOGGER("AarohiX.plugins").info("Successfully imported all plugin modules.")
+        for module in ALL_MODULES:
+            importlib.import_module("AarohiX.plugins" + module)
+
+        LOGGER("AarohiX").info("Plugin modules loaded.")
 
         await userbot.start()
+        userbot_started = True
         LOGGER("AarohiX").info("Userbot started.")
 
         await Dil.start()
+        calls_started = True
         await Dil.decorators()
 
         LOGGER("AarohiX").info("Music bot started successfully.")
         await idle()
 
-    except Exception as e:
-        LOGGER("AarohiX").error(f"Error while starting: {e}", exc_info=True)
+    except asyncio.CancelledError:
         raise
-
+    except Exception:
+        LOGGER("AarohiX").error(
+            "Startup/runtime error.", exc_info=True
+        )
+        raise
     finally:
-        try:
-            await Dil.stop()
-        except:
-            pass
-        try:
-            await userbot.stop()
-        except:
-            pass
-        try:
-            await app.stop()
-        except:
-            pass
-        LOGGER("AarohiX").info("Music bot stopped.")
+        if calls_started:
+            try:
+                await Dil.stop()
+            except Exception:
+                LOGGER("AarohiX").warning(
+                    "Error stopping voice-call clients.", exc_info=True
+                )
+
+        if userbot_started:
+            try:
+                await userbot.stop()
+            except Exception:
+                LOGGER("AarohiX").warning(
+                    "Error stopping userbot.", exc_info=True
+                )
+
+        if app_started:
+            try:
+                await app.stop()
+            except Exception:
+                LOGGER("AarohiX").warning(
+                    "Error stopping bot client.", exc_info=True
+                )
+
+        LOGGER("AarohiX").info("Shutdown complete.")
 
 
 if __name__ == "__main__":
     try:
-        loop.run_until_complete(init())
+        asyncio.run(main())
     except KeyboardInterrupt:
         pass
-    except Exception as e:
-        LOGGER("AarohiX").error(f"Fatal error: {e}", exc_info=True)
-    finally:
-        try:
-            loop.close()
-        except:
-            pass
+    except Exception:
+        # The actual traceback is logged inside main().
+        pass

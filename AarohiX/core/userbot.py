@@ -1,4 +1,4 @@
-
+```python
 from pyrogram import Client
 
 import config
@@ -18,6 +18,7 @@ class Userbot(Client):
             session_string=str(config.STRING1),
             no_updates=True,
         )
+
         self.two = Client(
             name="AarohiXAss2",
             api_id=config.API_ID,
@@ -25,6 +26,7 @@ class Userbot(Client):
             session_string=str(config.STRING2),
             no_updates=True,
         )
+
         self.three = Client(
             name="AarohiXAss3",
             api_id=config.API_ID,
@@ -32,6 +34,7 @@ class Userbot(Client):
             session_string=str(config.STRING3),
             no_updates=True,
         )
+
         self.four = Client(
             name="AarohiXAss4",
             api_id=config.API_ID,
@@ -39,6 +42,7 @@ class Userbot(Client):
             session_string=str(config.STRING4),
             no_updates=True,
         )
+
         self.five = Client(
             name="AarohiXAss5",
             api_id=config.API_ID,
@@ -51,14 +55,14 @@ class Userbot(Client):
         LOGGER(__name__).info("Starting assistant accounts...")
 
         accounts = [
-            (1, self.one, config.STRING1, "LOVE_FEELINGS_WILL1"),
-            (2, self.two, config.STRING2, "LOVE_FEELINGS_WILL1"),
-            (3, self.three, config.STRING3, "LOVE_FEELINGS_WILL1"),
-            (4, self.four, config.STRING4, "LOVE_FEELINGS_WILL1"),
-            (5, self.five, config.STRING5, "LOVE_FEELINGS_WILL1"),
+            (1, self.one, config.STRING1),
+            (2, self.two, config.STRING2),
+            (3, self.three, config.STRING3),
+            (4, self.four, config.STRING4),
+            (5, self.five, config.STRING5),
         ]
 
-        for number, client, session, channel in accounts:
+        for number, client, session in accounts:
             if not session:
                 continue
 
@@ -87,16 +91,6 @@ class Userbot(Client):
                     client.username or "no_username",
                 )
 
-                # Joining this channel is optional.
-                try:
-                    await client.join_chat(channel)
-                except Exception as error:
-                    LOGGER(__name__).warning(
-                        "Assistant %s could not join optional channel: %s",
-                        number,
-                        type(error).__name__,
-                    )
-
             except Exception:
                 LOGGER(__name__).exception(
                     "Assistant %s failed to start.", number
@@ -118,3 +112,4 @@ class Userbot(Client):
                 LOGGER(__name__).exception(
                     "Error while stopping an assistant."
                 )
+```

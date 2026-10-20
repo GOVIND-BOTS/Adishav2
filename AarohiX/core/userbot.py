@@ -111,4 +111,4 @@ class Userbot(Client):
                 LOGGER(__name__).exception(
                     "Error while stopping an assistant."
                 )
-```
+

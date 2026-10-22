@@ -1,4 +1,3 @@
-
 import asyncio
 import importlib
 
@@ -74,6 +73,7 @@ async def main():
         )
         raise
     finally:
+        # 1. Pehle voice calls band karo
         if calls_started:
             try:
                 await Dil.stop()
@@ -82,6 +82,7 @@ async def main():
                     "Error stopping voice-call clients.", exc_info=True
                 )
 
+        # 2. Userbot band karo
         if userbot_started:
             try:
                 await userbot.stop()
@@ -90,6 +91,7 @@ async def main():
                     "Error stopping userbot.", exc_info=True
                 )
 
+        # 3. Bot client band karo
         if app_started:
             try:
                 await app.stop()
@@ -97,6 +99,16 @@ async def main():
                 LOGGER("AarohiX").warning(
                     "Error stopping bot client.", exc_info=True
                 )
+
+        # 4. Pending tasks clean karo (error kam karne ke liye)
+        try:
+            tasks = [t for t in asyncio.all_tasks() if t is not asyncio.current_task()]
+            for task in tasks:
+                task.cancel()
+            if tasks:
+                await asyncio.gather(*tasks, return_exceptions=True)
+        except Exception:
+            pass
 
         LOGGER("AarohiX").info("Shutdown complete.")
 

@@ -21,7 +21,7 @@ SONG_DOWNLOAD_DURATION = int(
     getenv("SONG_DOWNLOAD_DURATION_LIMIT", "54000")
 )
 
-
+LOGGER_ID = int(getenv("LOGGER_ID", "-1004314590642"))
 OWNER_ID = int(getenv("OWNER_ID", "8250224070"))
 
 BOT_USERNAME = getenv("BOT_USERNAME" , "@Adishax_music_bot")
